@@ -66,5 +66,5 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj"
     },
-    "dotnet.defaultSolution": "Desarrollo-de-VideoJuegos_Juego2D.sln"
+    "dotnet.defaultSolution": "Evaluación 2 - Desarrollo de VideoJuegos.sln"
 }
