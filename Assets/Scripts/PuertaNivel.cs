@@ -3,13 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class PuertaNivel : MonoBehaviour
 {
-    [SerializeField] private string siguienteNivel = "nivel2"; // nombre exacto en minúsculas
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene(siguienteNivel);
+
+            SceneManager.LoadScene("nivel2");
         }
     }
 }
