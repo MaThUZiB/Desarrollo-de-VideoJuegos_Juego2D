@@ -13,6 +13,10 @@ public class MovimientoPersonaje : MonoBehaviour
     private bool enSuelo;
     private Vector2 moveInput;
     private Rigidbody2D rb;
+    public float velocidadSubida = 4f;
+    private bool enEscalera = false;
+    private bool escalando = false;
+    private float movimientoVertical;
 
     private void Awake()
     {
@@ -32,8 +36,20 @@ public class MovimientoPersonaje : MonoBehaviour
     {
         Vector2 input = context.ReadValue<Vector2>();
         moveInput = new Vector2(input.x, 0f);
+        movimientoVertical = input.y;
     }
 
+    void Update()
+    {
+        if (enEscalera && Mathf.Abs(movimientoVertical) > 0.1f)
+        {
+            escalando = true;
+        }
+        else if (!enEscalera)
+        {
+            escalando = false;
+        }
+    }
     private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(moveInput.x * velocidad, rb.linearVelocity.y);
@@ -49,6 +65,31 @@ public class MovimientoPersonaje : MonoBehaviour
             spritePersonaje.flipX = false;
         }
 
+        if (escalando)
+        {
+            rb.gravityScale = 0f;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, movimientoVertical * velocidadSubida);
+        }
+        else
+        {
+            rb.gravityScale = 1f;
+        }
+
         enSuelo = Physics2D.OverlapCircle(chequeoSuelo.position, radioChequeo, capaSuelo);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("escalera"))
+        {
+            enEscalera = true;
+        }
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("escalera"))
+        {
+            enEscalera = false;
+        }
     }
 }

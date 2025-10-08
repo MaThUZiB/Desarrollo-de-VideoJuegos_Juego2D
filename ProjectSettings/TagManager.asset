@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - manzana
+  - escalera
   layers:
   - Default
   - TransparentFX
@@ -45,8 +46,20 @@ TagManager:
   - name: Atras
     uniqueID: 2837144341
     locked: 0
+  - name: Atras +
+    uniqueID: 2869710893
+    locked: 0
+  - name: Atras ++
+    uniqueID: 1152833637
+    locked: 0
+  - name: Atras +++
+    uniqueID: 1881416155
+    locked: 0
   - name: Adelante
     uniqueID: 3649226705
+    locked: 0
+  - name: Adelante +
+    uniqueID: 4016458599
     locked: 0
   m_RenderingLayers:
   - Default
