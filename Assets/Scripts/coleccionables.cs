@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class coleccionables : MonoBehaviour
 {
-    private int cantidadcoleccionables = 0;
+    public static int cantidadcoleccionables = 0;
     [SerializeField] private Text textCollection;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
