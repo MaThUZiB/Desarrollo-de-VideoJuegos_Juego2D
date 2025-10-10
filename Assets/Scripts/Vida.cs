@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Vida : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class Vida : MonoBehaviour
     }
 
     private void GameOver() {
-        gameObject.SetActive(false);
+        SceneManager.LoadScene("gameOver");
     }
 }
 
